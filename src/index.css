@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-base: #030712;
+  --bg-panel: rgba(17, 24, 39, 0.7);
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6;
+  --accent-glow: rgba(59, 130, 246, 0.2);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --oracle-color: #f87171;
+  --ai-color: #a855f7;
+  --network-color: #10b981;
+}
+
+[data-theme='light'] {
+  --bg-base: #f3f4f6;
+  --bg-panel: rgba(255, 255, 255, 0.8);
+  --text-main: #111827;
+  --text-muted: #4b5563;
+  --border-light: rgba(0, 0, 0, 0.1);
+  --accent-glow: rgba(59, 130, 246, 0.15);
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.glass {
+  background: var(--bg-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
