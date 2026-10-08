@@ -186,9 +186,9 @@
   color: var(--text-muted);
 }
 
-.tag.oracle { border-color: rgba(248, 113, 113, 0.3); color: var(--oracle-color); }
-.tag.ai { border-color: rgba(168, 85, 247, 0.3); color: var(--ai-color); }
-.tag.networking { border-color: rgba(16, 185, 129, 0.3); color: var(--network-color); }
+.tag.core { border-color: rgba(59, 130, 246, 0.3); color: #60a5fa; background: rgba(59, 130, 246, 0.05); }
+.tag.data { border-color: rgba(245, 158, 11, 0.3); color: #fbbf24; background: rgba(245, 158, 11, 0.05); }
+.tag.comp { border-color: rgba(168, 85, 247, 0.3); color: #c084fc; background: rgba(168, 85, 247, 0.05); }
 
 .data-panel {
   display: flex;

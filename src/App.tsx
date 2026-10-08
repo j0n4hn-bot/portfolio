@@ -1,14 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { useGitHubRepos } from './hooks/useGitHubRepos'
-
 function App() {
   const [theme, setTheme] = useState(
     window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   )
-  
-  // TODO: Reemplaza con tu usuario real (ej: 'jonadev')
-  const { repos, loading } = useGitHubRepos('octocat');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
@@ -36,7 +31,7 @@ function App() {
       </header>
 
       <div className="dashboard-layout">
-        {/* PANEL IZQUIERDO: PERFIL Y COPY (Cortana) */}
+        {/* PANEL IZQUIERDO: PERFIL Y COPY (Data Analyst Focus) */}
         <aside className="profile-panel glass animate-slide-up delay-100">
           <div className="profile-header">
             <h1 className="profile-name">Jonathan</h1>
@@ -44,34 +39,56 @@ function App() {
           </div>
           
           <div className="profile-role">
-            <h2>Data Analyst &<br/>AI-Augmented Engineer</h2>
+            <h2>Data Analyst | SQL Specialist • BI • AI-Augmented</h2>
           </div>
 
           <div className="about-section">
             <p>
-              Transformo volúmenes críticos de datos en arquitecturas de software accionables. 
-              Como analista estratégico y desarrollador certificado en Oracle, no solo interpreto la información: 
-              construyo la infraestructura que la soporta. Utilizo Inteligencia Artificial como un multiplicador 
-              de fuerza operativa para diseñar, programar y escalar soluciones con precisión quirúrgica.
+              Con bases sólidas en programación y arquitectura de bases de datos (especialista en MySQL), 
+              me dedico a transformar datos complejos en información estratégica para negocios. 
+              Integro Inteligencia Artificial en mi flujo de trabajo como un multiplicador de fuerza 
+              operativa para escribir código más limpio, automatizar procesos y acelerar el análisis 
+              de datos con máxima precisión.
             </p>
           </div>
 
           <div className="skills-matrix">
-            <h3>Capacidades Tácticas</h3>
+            <h3>Core Skills</h3>
             <div className="tags">
-              <span className="tag oracle">Arquitectura Oracle DB</span>
-              <span className="tag">Análisis Relacional (MySQL)</span>
-              <span className="tag ai">Ingeniería Acelerada por IA</span>
-              <span className="tag">Lógica Algorítmica Avanzada</span>
-              <span className="tag networking">Infraestructura CCNA</span>
+              <span className="tag core">SQL</span>
+              <span className="tag core">Python / Pandas</span>
+              <span className="tag core">Excel</span>
+              <span className="tag core">Power BI</span>
+              <span className="tag core">Tableau</span>
+              <span className="tag">Data Cleaning</span>
+              <span className="tag">Data Visualization</span>
+              <span className="tag">EDA</span>
+            </div>
+
+            <h3 className="mt-4">Data & Architecture</h3>
+            <div className="tags">
+              <span className="tag data">MySQL</span>
+              <span className="tag data">SQL Server</span>
+              <span className="tag data">Oracle</span>
+              <span className="tag data">PostgreSQL</span>
+              <span className="tag">ETL</span>
+              <span className="tag">Data Modeling</span>
+            </div>
+
+            <h3 className="mt-4">Complementary</h3>
+            <div className="tags">
+              <span className="tag comp">Automation</span>
+              <span className="tag comp">OR-Tools</span>
+              <span className="tag comp">AI-Assisted Dev</span>
+              <span className="tag comp">Git / GitHub</span>
             </div>
           </div>
         </aside>
 
-        {/* PANEL DERECHO: NODOS DE PRODUCCIÓN Y GITHUB (Jarvis) */}
+        {/* PANEL DERECHO: FEATURED PROJECTS */}
         <main className="data-panel animate-slide-up delay-200">
           <div className="panel-header">
-            <h2>Nodos de Producción (GitHub)</h2>
+            <h2>Featured Projects</h2>
             <div className="terminal-header">
               <span className="dot red"></span>
               <span className="dot yellow"></span>
@@ -80,31 +97,53 @@ function App() {
           </div>
 
           <div className="repos-grid">
-            {loading ? (
-              <div className="loading-state">
-                <div className="loader"></div>
-                <p>Estableciendo conexión con GitHub API...</p>
+            <a href="https://klassia-edu.vercel.app" target="_blank" rel="noopener noreferrer" className="repo-card glass">
+              <div className="repo-top">
+                <h3>Klassia Edu</h3>
+                <span className="lang-indicator">Gamificación • Tiempo Real</span>
               </div>
-            ) : (
-              repos.length > 0 ? repos.map(repo => (
-                <a key={repo.id} href={repo.html_url} target="_blank" rel="noopener noreferrer" className="repo-card glass">
-                  <div className="repo-top">
-                    <h3>{repo.name}</h3>
-                    {repo.language && <span className="lang-indicator">{repo.language}</span>}
-                  </div>
-                  <p className="repo-desc">{repo.description || 'Procesamiento analítico y lógica de desarrollo sin descripción pública.'}</p>
-                  <div className="repo-stats">
-                    <span>⭐ {repo.stargazers_count}</span>
-                    <span>🔗 Ver Código Fuente</span>
-                  </div>
-                </a>
-              )) : (
-                 <div className="repo-card glass empty-state">
-                  <h3>No Signal</h3>
-                  <p>Añade tu usuario de GitHub en App.tsx para desplegar métricas.</p>
-                </div>
-              )
-            )}
+              <p className="repo-desc">Webapp de gamificación educativa (estilo ClassDojo) pionera en integrar gamificación física en tiempo real mediante tarjetas y códigos QR.</p>
+              <div className="repo-stats">
+                <span>⭐ Core Project</span>
+                <span>🔗 Ver Demo</span>
+              </div>
+            </a>
+
+            <a href="https://schoolasync.vercel.app" target="_blank" rel="noopener noreferrer" className="repo-card glass">
+              <div className="repo-top">
+                <h3>SchoolAsync</h3>
+                <span className="lang-indicator">Motor Metaheurístico • Algoritmos</span>
+              </div>
+              <p className="repo-desc">Motor algorítmico que resuelve y genera horarios escolares automáticamente manejando restricciones duras/blandas (50+ docentes, 1000+ asignaturas).</p>
+              <div className="repo-stats">
+                <span>⭐ Data Architecture</span>
+                <span>🔗 Ver Demo</span>
+              </div>
+            </a>
+
+            <a href="https://laisev.vercel.app" target="_blank" rel="noopener noreferrer" className="repo-card glass">
+              <div className="repo-top">
+                <h3>LaiSeV</h3>
+                <span className="lang-indicator">E-commerce • IA Analítica</span>
+              </div>
+              <p className="repo-desc">Plataforma de alquiler de mobiliario con Dashboard Analítico. Incluye un Asesor Comercial Autónomo (IA) que procesa telemetría de visitas para sugerir ventas.</p>
+              <div className="repo-stats">
+                <span>⭐ Business Intelligence</span>
+                <span>🔗 Ver Demo</span>
+              </div>
+            </a>
+
+            <a href="#" className="repo-card glass">
+              <div className="repo-top">
+                <h3>eduPlan-IA</h3>
+                <span className="lang-indicator">AI-Augmented • Data</span>
+              </div>
+              <p className="repo-desc">Solución acelerada por Inteligencia Artificial para la planificación y análisis de métricas educativas.</p>
+              <div className="repo-stats">
+                <span>⭐ AI Tooling</span>
+                <span>🚧 En construcción</span>
+              </div>
+            </a>
           </div>
         </main>
       </div>
